@@ -1,5 +1,5 @@
 //----------------- pass by value --------------//
-/*
+
 #include<iostream>
 using namespace std;
 void fun(int a){
@@ -12,10 +12,10 @@ int main(){
     cout<<"org data "<<n<<endl;
     fun(n);
 }
-*/
+
 
 //-------------------pass by refrance ------------#
-/*
+
 #include<iostream>
 using namespace std;
 void fun(int &n){
@@ -27,7 +27,7 @@ int main(){
     int n=5;
     cout<<n<<endl;
 }
-*/
+
 // both concept understand by swap using function
 #include<iostream>
 using namespace std;
