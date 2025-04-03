@@ -1,45 +1,46 @@
 //------------------Binary search-------------------//
-/*
-#include<iostream>
+#include <iostream>
 using namespace std;
-int BinarySearch(int arr[],int n,int key){
-    //start,end,mid;
-    int start=0,end=n-1,mid;
-    while (start<=end)
-    {
-        //Mid find
-        mid=(start+end)/2;
-        mid=mid+start+(end-start)/2;  //best approch
-        // arr[mid]== key
-        if (arr[mid]==key)
-        return mid+1;
-        // arr[mid]<key
-         else if(arr[mid]<key)
-        start=mid+1;
-        //arr[mid]>key
-        else
-        end=mid-1;
-    }
-    return -1;
-    
-}
-int main(){
-    int arr[100];
-    int n;
-    cout<<"Enter the size of elements:";
-    cin>>n;
-    cout<<"Enter the elements:";
-    for(int i=0;i<n;i++)
-        cin>>arr[i];
-    int key;
-    cout<<"Enter the key:";
-    cin>>key;
 
-    cout<<BinarySearch(arr,n,key);
+int BinarySearch(int arr[], int n, int key) {
+    int start = 0, end = n - 1, mid;
+
+    while (start <= end) {
+        mid = start + (end - start) / 2;  // Prevents integer overflow
+
+        if (arr[mid] == key)
+            return mid ;  // Returns position (1-based index)
+        else if (arr[mid] < key)
+            start = mid + 1;
+        else
+            end = mid - 1;
+    }
+    return -1;  // Element not found
+}
+
+int main() {
+    int arr[100], n;
+
+    cout << "Enter the size of elements: ";
+    cin >> n;
+
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    int key;
+    cout << "Enter the key: ";
+    cin >> key;
+
+    int result = BinarySearch(arr, n, key);
+    if (result == -1)
+        cout << "Element not found!";
+    else
+        cout << "Element found at position " << result;  // 1-based index
+
     return 0;
 }
 
-*/
 
 // reverse binary search 
 /*
@@ -533,47 +534,48 @@ int main(){
 */
 
 //--------------------------------ship packages----------------------------------------//
-#include<iostream>
-using namespace std;
-void packages(int arr[],int n,int m){
-   int start=0,end=0,mid,ans=-1;
-    for(int i=0;i<n;i++){
-        start=max(start,arr[i]);
-        end +=arr[i];
-    }
-    while(start<=end){
-         //mid
-    mid=start+(end-start)/2;
-    int pack=0,count=1;
-    for(int i=0;i<n;i++){
-        if(pack+arr[i]>mid){
-            count ++;
-            pack=arr[i];
-        }
-        else{
-            pack+=arr[i];
-        }
-    }
-    if(count<=m){
-        ans=mid;
-        end=mid-1;
-    }
-    else{
-        start=mid+1;
-    }
-    }
-    cout<<ans; 
-}
-int main(){
-    int n,m;
-    int arr[1000];
-    cout<<"Enter the number of packages: ";
-    cin>>n;
-    cout<<"Enter the weight of packages:";
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    cout<<"Enter the Days :";
-    cin>>m;
-    packages(arr,n,m); 
-}
+
+// #include<iostream>
+// using namespace std;
+// void packages(int arr[],int n,int m){
+//    int start=0,end=0,mid,ans=-1;
+//     for(int i=0;i<n;i++){
+//         start=max(start,arr[i]);
+//         end +=arr[i];
+//     }
+//     while(start<=end){
+//          //mid
+//     mid=start+(end-start)/2;
+//     int pack=0,count=1;
+//     for(int i=0;i<n;i++){
+//         if(pack+arr[i]>mid){
+//             count ++;
+//             pack=arr[i];
+//         }
+//         else{
+//             pack+=arr[i];
+//         }
+//     }
+//     if(count<=m){
+//         ans=mid;
+//         end=mid-1;
+//     }
+//     else{
+//         start=mid+1;
+//     }
+//     }
+//     cout<<ans; 
+// }
+// int main(){
+//     int n,m;
+//     int arr[1000];
+//     cout<<"Enter the number of packages: ";
+//     cin>>n;
+//     cout<<"Enter the weight of packages:";
+//     for(int i=0;i<n;i++){
+//         cin>>arr[i];
+//     }
+//     cout<<"Enter the Days :";
+//     cin>>m;
+//     packages(arr,n,m); 
+// }
